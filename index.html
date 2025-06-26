@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <style>
+    :root {
+      --main-color: #0ef;
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --secondary-color: #1f1f1f;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+    }
+    header {
+      background: var(--secondary-color);
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      color: var(--main-color);
+    }
+    nav a {
+      margin: 0 15px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: var(--main-color);
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--main-color);
+    }
+    .project {
+      background: var(--secondary-color);
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: #888;
+      font-size: 14px;
+    }
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚀 Mehdi Hadavi</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <section id="home">
+    <h2 class="section-title">Welcome</h2>
+    <p>Hello! I'm Mehdi, a full-stack developer passionate about building beautiful, fast, and secure web applications.</p>
+  </section>
+  <section id="about" class="fade-in">
+    <h2 class="section-title">About Me</h2>
+    <p>I have experience in Python, C#, JavaScript, PHP, and more. I also love working with server hardware, networks, and building complete IT systems. Currently, I'm focusing on building awesome digital products and learning new tech every day.</p>
+  </section>
+  <section id="projects" class="fade-in">
+    <h2 class="section-title">Projects</h2>
+    <div class="project">
+      <h3>🌐 Personal Website</h3>
+      <p>Fully responsive, dark-mode enabled personal site made with HTML/CSS/JS.</p>
+    </div>
+    <div class="project">
+      <h3>💻 IT Repair Dashboard</h3>
+      <p>Dashboard tool to manage client devices, repair logs, and performance reports.</p>
+    </div>
+    <div class="project">
+      <h3>📱 Saffron Store Website</h3>
+      <p>Modern e-commerce landing page built with animations, React style UI.</p>
+    </div>
+  </section>
+  <section id="contact" class="fade-in">
+    <h2 class="section-title">Contact</h2>
+    <p>📧 Email: mahdiihadavi@gmail.com</p>
+    <p>🔗 GitHub: <a href="https://github.com/" target="_blank" style="color: var(--main-color)">github.com/yourusername</a></p>
+    <p>💼 LinkedIn: <a href="https://linkedin.com/" target="_blank" style="color: var(--main-color)">linkedin.com/in/yourprofile</a></p>
+  </section>
+  <footer>
+    © 2025 Mehdi Hadavi. All rights reserved.
+  </footer>
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => { appearOnScroll.observe(fader); });
+  </script>
+</body>
+</html>
